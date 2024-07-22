@@ -15,7 +15,7 @@ class ProgressCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             Row(
+            Row(
               children: [
                 Text(
                   'PROGRESS',
@@ -25,7 +25,8 @@ class ProgressCard extends StatelessWidget {
                 Card(
                   color: Colors.transparent,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                  child: Icon(Icons.file_upload_outlined,color: Colors.white,size: 30,)),
+                  child: Icon(Icons.file_upload_outlined, color: Colors.white, size: 30),
+                ),
               ],
             ),
             const SizedBox(height: 10),
@@ -39,17 +40,38 @@ class ProgressCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 20),
                 const Text(
-              'Out of 1,225 pages\n#5 among friends',
-              style: TextStyle(color: Colors.black),
-            ),
+                  'Out of 1,225 pages\n#5 among friends',
+                  style: TextStyle(color: Colors.black),
+                ),
               ],
             ),
-            
             const SizedBox(height: 10),
-            Row(
-              children: List.generate(5, (index) => const CircleAvatar(
-                backgroundImage: NetworkImage('https://via.placeholder.com/40'),
-              )),
+            Column(
+              children: [
+                Stack(
+                  alignment: Alignment.centerLeft,
+                  children: [
+                    Container(
+                      height: 2.5,
+                      color: Colors.white,
+                    ),
+                    Container(
+                      width: 120, //we can make it dynamic
+                      height: 2,
+                      color: Colors.black,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  children: List.generate(5, (index) => const Padding(
+                    padding: EdgeInsets.only(right: 8.0),
+                    child: CircleAvatar(
+                      backgroundImage: NetworkImage('https://via.placeholder.com/40'),
+                    ),
+                  )),
+                ),             
+              ],
             ),
           ],
         ),
